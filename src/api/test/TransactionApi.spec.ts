@@ -10,13 +10,13 @@ import { expect } from 'chai';
 import { PrivateKey } from '../../index';
 
 /* tslint:disable:no-unused-expression */
-const network = Network.getDefault(NetworkType.Devnet);
+const network = Network.getDefault(NetworkType.Alphanet);
 const http = new Http(network);
 
 let api: TransactionApi;
 
 describe('TransactionApi', () => {
-  const address = 'DPTj92butfhy527V13bSXMj9SVYZGAVZ1R';
+  const address = 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi';
 
   before(async () => {
     const peerApi = new PeerApi(http);
@@ -50,12 +50,12 @@ describe('TransactionApi', () => {
       return api.createTransaction({
         amount: 10,
         passphrase: key,
-        recipientId: 'DRKaLgq8jKYQEdN2EJ7aGEh8hMDvMzd3CW',
+        recipientId: 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi',
         timestamp: 1,
       }).forEach((transaction) => {
         // tslint:disable
-        expect(transaction.signature).to.be.deep.eq('3045022100a3bc590b6b80b69070799ffb7fb08ecaff209f834c72a0f28c815d46eb3123b6022029c22350c72d4e42c4f39654629cd3b8d5ac377afdb338457a57bead65e83055');
-        expect(transaction.id).to.be.deep.eq('2b9debcedd717ccfe68e0786c7c3ee244ccec3181c85c709196315643350d61d');
+        expect(transaction.signature).to.be.deep.eq('30450221008b3ea145f47ed4ead17f5d3eda6a55c64a4fbf7a302e5a25678868e21b473eca022044dffd156a77097ef3d3873f4aa10265cc700a8356256c6aaa49b9c1278cde4e');
+        expect(transaction.id).to.be.deep.eq('9e76115ec088ee82640cee6556dbfafcf52ef4ede7684a09bb6b1204ce851fee');
         // tslint:enable
       });
     });
@@ -64,12 +64,12 @@ describe('TransactionApi', () => {
       return api.createTransaction({
         amount: 10,
         passphrase: 'mysecret',
-        recipientId: 'DRKaLgq8jKYQEdN2EJ7aGEh8hMDvMzd3CW',
+        recipientId: 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi',
         timestamp: 1,
       }).forEach((transaction) => {
         // tslint:disable
-        expect(transaction.signature).to.be.deep.eq('3045022100a3bc590b6b80b69070799ffb7fb08ecaff209f834c72a0f28c815d46eb3123b6022029c22350c72d4e42c4f39654629cd3b8d5ac377afdb338457a57bead65e83055');
-        expect(transaction.id).to.be.deep.eq('2b9debcedd717ccfe68e0786c7c3ee244ccec3181c85c709196315643350d61d');
+        expect(transaction.signature).to.be.deep.eq('30450221008b3ea145f47ed4ead17f5d3eda6a55c64a4fbf7a302e5a25678868e21b473eca022044dffd156a77097ef3d3873f4aa10265cc700a8356256c6aaa49b9c1278cde4e');
+        expect(transaction.id).to.be.deep.eq('9e76115ec088ee82640cee6556dbfafcf52ef4ede7684a09bb6b1204ce851fee');
         // tslint:enable
       });
     });
@@ -78,13 +78,13 @@ describe('TransactionApi', () => {
       return api.createTransaction({
         amount: 10,
         passphrase: 'mysecret',
-        recipientId: 'DRKaLgq8jKYQEdN2EJ7aGEh8hMDvMzd3CW',
+        recipientId: 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi',
         timestamp: 1,
         vendorField: 'hi from vekexasia',
       }).forEach((transaction) => {
         // tslint:disable
-        expect(transaction.signature).to.be.deep.eq('3044022035a591c9b8eb42732f1a87f6c535265fdc8015afd5105f1cf31012daeb3fffd50220705ac531bafc15d74ee263223c6346937c5fe31407c100cd732e8fd7780c8072');
-        expect(transaction.id).to.be.deep.eq('6bd6d69320efcf04d442b53034e07d3127905c353412d4a2c2215a115ca4795f');
+        expect(transaction.signature).to.be.deep.eq('3045022100f0140fbf24eb77f427e67f6f208430286470f809c21acb8fe766be1dc6feb4bd022076961437f61d13f8d7b4dde1894a40442e91ae3d238fe57e76a2b4781b4e62e5');
+        expect(transaction.id).to.be.deep.eq('e3dd01ee36d3a5da778047b51e0b64bc57c9fdc3ec4342b4dc81198dd56de836');
         // tslint:enable
       });
     });
@@ -96,7 +96,7 @@ describe('TransactionApi', () => {
       amount: 100000000,
       passphrase: 'my secret',
       recipientId: address,
-      vendorField: 'Send transaction by ark-tsc',
+      vendorField: 'Send transaction by sbx-ts',
     }).forEach((transaction) => {
       expect(transaction).to.be.instanceOf(Transaction);
     });
@@ -107,12 +107,12 @@ describe('TransactionApi', () => {
       amount: 100000000,
       passphrase: 'my secret',
       recipientId: address,
-      vendorField: 'Send transaction by ark-tsc',
+      vendorField: 'Send transaction by sbx-ts',
     }).forEach((transaction) => {
       expect(transaction).to.be.instanceOf(Transaction);
       expect(transaction.amount).to.be.eq(100000000);
       expect(transaction.recipientId).to.be.eq(address);
-      expect(transaction.vendorField).to.be.eq('Send transaction by ark-tsc');
+      expect(transaction.vendorField).to.be.eq('Send transaction by sbx-ts');
       expect(transaction.type).to.be.eq(0);
 
     });
@@ -124,13 +124,13 @@ describe('TransactionApi', () => {
       delegatePublicKey: delegatePublicKey,
       passphrase: 'my secret',
       type: VoteType.Add,
-      vendorField: 'Send vote transaction by ark-tsc',
+      vendorField: 'Send vote transaction by sbx-ts',
     }).forEach((transaction) => {
       console.log(transaction);
       expect(transaction).to.be.instanceOf(Transaction);
       expect(transaction.type).to.be.eq(TransactionType.Vote);
       expect(transaction.asset.votes[0]).to.be.eq('+' + delegatePublicKey);
-      expect(transaction.vendorField).to.be.eq('Send vote transaction by ark-tsc');
+      expect(transaction.vendorField).to.be.eq('Send vote transaction by sbx-ts');
     });
   });
 
@@ -141,21 +141,21 @@ describe('TransactionApi', () => {
       passphrase: 'my secret',
       publicKey: publicKey,
       username: username,
-      vendorField: 'Send delegate transaction by ark-tsc',
+      vendorField: 'Send delegate transaction by sbx-ts',
     }).forEach((transaction) => {
       expect(transaction).to.be.instanceOf(Transaction);
       expect(transaction.type).to.be.eq(TransactionType.CreateDelegate);
       expect(transaction.asset.delegate.publicKey).to.be.eq(publicKey);
       expect(transaction.asset.delegate.username).to.be.eq(username);
-      expect(transaction.vendorField).to.be.eq('Send delegate transaction by ark-tsc');
+      expect(transaction.vendorField).to.be.eq('Send delegate transaction by sbx-ts');
     });
   });
 
   it('should create a instance of Transaction from createSignature', () => {
-    return api.createSignature('my secret', 'my second secret passphrase', 'Send signature transaction by ark-tsc').forEach((transaction) => {
+    return api.createSignature('my secret', 'my second secret passphrase', 'Send signature transaction by sbx-ts').forEach((transaction) => {
       expect(transaction).to.be.instanceOf(Transaction);
       expect(transaction.type).to.be.eq(TransactionType.SecondSignature);
-      expect(transaction.vendorField).to.be.eq('Send signature transaction by ark-tsc');
+      expect(transaction.vendorField).to.be.eq('Send signature transaction by sbx-ts');
     });
   });
 
@@ -167,14 +167,14 @@ describe('TransactionApi', () => {
   });
 
   it('should return success from get', () => {
-    return api.get('a5e8ad49c9d8d074490f20cc4de960baa42c5db91f11513ddd7ccd853e5a49d9').forEach((response) => {
+    return api.get('879ee60077d8f6ce65b6ab5c7dfba1ff9e692a775a68d1bb34c8d0a9f418fd37').forEach((response) => {
       expect(response).to.have.property('success', true);
     });
   });
 
   it('should return false on success field from getUnconfirmed', () => {
     return api.getUnconfirmed(
-      'a5e8ad49c9d8d074490f20cc4de960baa42c5db91f11513ddd7ccd853e5a49d9',
+      '879ee60077d8f6ce65b6ab5c7dfba1ff9e692a775a68d1bb34c8d0a9f418fd37',
     ).forEach((response) => {
       expect(response).to.have.property('success', false);
     });
@@ -198,12 +198,12 @@ describe('TransactionApi', () => {
       amount: 100000000,
       fee: 10000000,
       id: '5b9be5f9b1280d542e856e84758312780fe0061366592e579cbed8639511cac0',
-      recipientId: 'DPTj92butfhy527V13bSXMj9SVYZGAVZ1R',
+      recipientId: 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi',
       senderPublicKey: '026c75159ccf36ffc639fdfcba7c6e798f90b2767b54b8a99f2eeec534c92a32e9',
       signature: '304402203d971b4e50e27e7fec8fb6d42523b82a70a82af9b9488d8f4aa16cb7936162ea022077e072b21e78cf24b7a9b8b653042dcb218b226f1b18e9a7a8462bc49e48255b',
       timestamp: 9870360,
       type: 0,
-      vendorField: 'Send transaction by ark-tsc'
+      vendorField: 'Send transaction by sbx-ts'
     };
 
     return api.post(transaction).forEach((response) => {

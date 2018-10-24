@@ -21,5 +21,4 @@ export default class Client {
     this.block = new api.BlockApi(request);
     this.transaction = new api.TransactionApi(request);
   }
-
 }

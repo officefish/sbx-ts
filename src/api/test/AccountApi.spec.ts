@@ -9,10 +9,10 @@ import { expect } from 'chai';
 /* tslint:disable:no-unused-expression */
 
 describe('AccountApi', () => {
-  const network = Network.getDefault(NetworkType.Devnet);
+  const network = Network.getDefault(NetworkType.Alphanet);
   const http = new Http(network);
   const api = new AccountApi(http);
-  const address = 'DPTj92butfhy527V13bSXMj9SVYZGAVZ1R';
+  const address = 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi';
 
   it('should be instance of AccountApi', () => {
     expect(api).to.be.instanceOf(AccountApi);

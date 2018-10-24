@@ -77,7 +77,7 @@ export class PrivateKey {
 
   public static fromWIF(
     wifString: string,
-    network: model.Network = model.Network.getDefault(model.NetworkType.Mainnet),
+    network: model.Network = model.Network.getDefault(model.NetworkType.Alphanet),
   ): PrivateKey {
     if (!network) {
       network = model.Network.getDefault();
@@ -91,7 +91,7 @@ export class PrivateKey {
 
   public static fromSeed(
     passphrase: string | Buffer,
-    network: model.Network = model.Network.getDefault(model.NetworkType.Mainnet),
+    network: model.Network = model.Network.getDefault(model.NetworkType.Alphanet),
   ): PrivateKey {
     let password;
 

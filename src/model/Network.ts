@@ -2,8 +2,8 @@ import config from '../config';
 import { Peer } from './Peer';
 
 export enum NetworkType {
-  Mainnet,
-  Devnet,
+  Alphanet,
+  Testnet,
 }
 
 /** Network model. */
@@ -53,7 +53,7 @@ export class Network {
   /**
    * Get network from default config file based on type.
    */
-  public static getDefault(type: NetworkType = NetworkType.Mainnet): Network {
+  public static getDefault(type: NetworkType = NetworkType.Alphanet): Network {
     const item = NetworkType[type].toLowerCase();
     const networks = config.networks;
 

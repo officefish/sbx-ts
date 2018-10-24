@@ -10,10 +10,10 @@ import { expect } from 'chai';
 /* tslint:disable:no-unused-expression */
 
 describe('PeerApi', () => {
-  const network = Network.getDefault(NetworkType.Devnet);
+  const network = Network.getDefault(NetworkType.Alphanet);
   const http = new Http(network);
   const api = new PeerApi(http);
-  const address = 'DPTj92butfhy527V13bSXMj9SVYZGAVZ1R';
+  const address = 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi';
 
   it('should be instance of PeerApi', () => {
     expect(api).to.be.instanceOf(PeerApi);
@@ -26,7 +26,7 @@ describe('PeerApi', () => {
   });
 
   it('should return success from get', () => {
-    return api.get('213.32.9.97', 4002).forEach((response) => {
+    return api.get('136.144.141.118', 4100).forEach((response) => {
       expect(response).to.have.property('success', true);
     });
   });

@@ -12,26 +12,26 @@ describe('Network', () => {
   });
 
   it ('should have properties', () => {
-    expect(NetworkType).have.property('Mainnet');
+    expect(NetworkType).have.property('Alphanet');
     expect(Network).have.property('getDefault');
   });
 
-  it('should create a instance of mainnet network', () => {
-    const network = Network.getDefault(NetworkType.Mainnet);
-    expect(network.name).to.be.equal('mainnet');
+  it('should create a instance of alphanet network', () => {
+    const network = Network.getDefault(NetworkType.Alphanet);
+    expect(network.name).to.be.equal('alphanet');
   });
 
-  it('should create a instance of devnet network', () => {
-    const network = Network.getDefault(NetworkType.Devnet);
-    expect(network.name).to.be.equal('devnet');
+  it('should create a instance of testnet network', () => {
+    const network = Network.getDefault(NetworkType.Testnet);
+    expect(network.name).to.be.equal('testnet');
   });
 
   it('should create a manual instance of network', () => {
     const network = new Network;
 
-    network.type = NetworkType.Mainnet;
+    network.type = NetworkType.Testnet;
     network.name = 'testnet';
-    network.nethash = '6e84d08bd299ed97c212c886c98a57e36545c8f5d645ca7eeae63a8bd62d8988';
+    network.nethash = '9d39602ff3d69780da2c9f5ed5e24451409f6511e226bd540dd84a375508ce5b';
 
     expect(network).to.be.instanceOf(Network);
   });
@@ -39,12 +39,12 @@ describe('Network', () => {
   it('should set a active peer', () => {
     const network = new Network;
     const peer = new Peer;
-    peer.ip = '5.39.9.251';
-    peer.port = 4001;
+    peer.ip = '136.144.141.118';
+    peer.port = 4100;
 
-    network.type = NetworkType.Mainnet;
-    network.name = 'testnet';
-    network.nethash = '6e84d08bd299ed97c212c886c98a57e36545c8f5d645ca7eeae63a8bd62d8988';
+    network.type = NetworkType.Alphanet;
+    network.name = 'alphanet';
+    network.nethash = 'd21f07a10a8314d558132de8a3848e6fa9edde754638d1aacd381c6efb8be81d';
 
     network.setPeer(peer);
     expect(network.activePeer).to.be.instanceOf(Peer);
@@ -53,12 +53,12 @@ describe('Network', () => {
   it('should return string url from active peer', () => {
     const network = new Network;
     const peer = new Peer;
-    peer.ip = '5.39.9.251';
-    peer.port = 4001;
+    peer.ip = '136.144.141.118';
+    peer.port = 4100;
 
-    network.type = NetworkType.Mainnet;
-    network.name = 'testnet';
-    network.nethash = '6e84d08bd299ed97c212c886c98a57e36545c8f5d645ca7eeae63a8bd62d8988';
+    network.type = NetworkType.Alphanet;
+    network.name = 'alphanet';
+    network.nethash = 'd21f07a10a8314d558132de8a3848e6fa9edde754638d1aacd381c6efb8be81d';
 
     network.setPeer(peer);
     expect(network.getPeerAPIUrl()).to.be.a('string').and.not.empty;

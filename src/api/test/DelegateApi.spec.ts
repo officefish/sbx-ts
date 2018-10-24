@@ -9,10 +9,10 @@ import { expect } from 'chai';
 /* tslint:disable:no-unused-expression */
 
 describe('DelegateApi', () => {
-  const network = Network.getDefault(NetworkType.Devnet);
+  const network = Network.getDefault(NetworkType.Alphanet);
   const http = new Http(network);
   const api = new DelegateApi(http);
-  const address = 'DPTj92butfhy527V13bSXMj9SVYZGAVZ1R';
+  const address = 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi';
 
   it('should be instance of DelegateApi', () => {
     expect(api).to.be.instanceOf(DelegateApi);
@@ -39,7 +39,7 @@ describe('DelegateApi', () => {
 
   it('should return sucess from voters', () => {
     return api.voters({
-      publicKey: '03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'
+      publicKey: '021afaa353123b0268b5d62bf156e0aca02b1199d06ec274938d4737dd2736b9d9'
     }).forEach((response) => {
       expect(response).to.have.property('success', true);
     });
@@ -47,7 +47,7 @@ describe('DelegateApi', () => {
 
   it('should return instance of ForgedDetails from forgedData', () => {
     return api.forgedData({
-      publicKey: '03bd4f16e39aaba5cba6a87b7498b08ce540f279be367e68ae96fb05dfabe203ad'
+      publicKey: '021afaa353123b0268b5d62bf156e0aca02b1199d06ec274938d4737dd2736b9d9'
     }).forEach((response) => {
       expect(response).to.be.property('success', true);
     });
@@ -55,7 +55,7 @@ describe('DelegateApi', () => {
 
   it('should return success from search', () => {
     return api.search({
-      q: 'genesis'
+      q: 'dated_pool'
     }).forEach((response) => {
       expect(response).to.be.property('success', true);
     });

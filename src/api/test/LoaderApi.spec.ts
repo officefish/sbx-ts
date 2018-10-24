@@ -9,10 +9,10 @@ import { expect } from 'chai';
 /* tslint:disable:no-unused-expression */
 
 describe('LoaderApi', () => {
-  const network = Network.getDefault(NetworkType.Devnet);
+  const network = Network.getDefault(NetworkType.Testnet);
   const http = new Http(network);
   const api = new LoaderApi(http);
-  const address = 'DPTj92butfhy527V13bSXMj9SVYZGAVZ1R';
+  const address = 'XLkD8W97pijJD9RnYk4zb1exdCQ55GCHoi';
   const peerUrl = `http://${network.activePeer.ip}:${network.activePeer.port}`
 
   it('should be instance of LoaderApi', () => {

@@ -1,14 +1,10 @@
-**:warning: SOON TO BE DEPRECATED IN FAVOR OF https://github.com/ArkEcosystem/core/tree/master/packages/crypto - PLEASE SUBMIT PULL REQUESTS TO THE CORE V2 REPOSITORY :warning:***
-
-![TSARK Logo](https://i.imgur.com/AyhlVoZ.png)
-
 # TSARK
 
-> An ARK API wrapper, written in TypeScript to interact with ARK blockchain.
+> An SBX API wrapper, written in TypeScript to interact with SBX blockchain.
 
-[![npm](https://img.shields.io/npm/dt/ark-ts.svg)]()
-[![npm](https://img.shields.io/npm/v/ark-ts.svg)]()
-[![license](https://img.shields.io/github/license/arkecosystem/ark-ts.svg)]()
+[![npm](https://img.shields.io/npm/dt/sbx-ts.svg)]()
+[![npm](https://img.shields.io/npm/v/sbx-ts.svg)]()
+[![license](https://img.shields.io/github/license/swapblocks/sbx-ts.svg)]()
 
 TSARK is a library client designed to facilitate how you interact with the ARK blockchain.
 
@@ -20,20 +16,20 @@ TSARK is a library client designed to facilitate how you interact with the ARK b
 
 ## Documentation
 
-> [API documentation](https://arkecosystem.github.io/ark-ts/) is hosted on github pages, and is generated from [TypeDoc](https://github.com/TypeStrong/typedoc).
+> [API documentation](https://swapblocks.github.io/sbx-ts/) is hosted on github pages, and is generated from [TypeDoc](https://github.com/TypeStrong/typedoc).
 
 ## Installation
 
-TSARK is avaliable from `npm`.
+TSSBX is avaliable from `npm`.
 
 ```bash
-yarn add ark-ts
+yarn add sbx-ts
 ```
 
 or
 
 ```bash
-npm i ark-ts --save
+npm i sbx-ts --save
 ```
 
 ## Usage
@@ -42,13 +38,13 @@ For the best TypeScript experience, you should either use [Visual Studio Code](h
 
 ### Basic Examples
 
-> Get delegate list from Devnet network.
+> Get delegate list from Testnet network.
 
 ```js
-import { Client, Network, NetworkType } from 'ark-ts';
+import { Client, Network, NetworkType } from 'sbx-ts';
 
-const devnet = Network.getDefault(NetworkType.Devnet);
-const client = new Client(devnet);
+const testnet = Network.getDefault(NetworkType.Testnet);
+const client = new Client(testnet);
 
 client.delegate.list().subscribe((list) => {
   console.log(list);
@@ -58,9 +54,9 @@ client.delegate.list().subscribe((list) => {
 > Get address from passphrase.
 
 ```js
-import { PrivateKey } from 'ark-ts/core';
+import { PrivateKey } from 'sbx-ts/core';
 
-// if no specify a second param, default is mainnet
+// if no specify a second param, default is alphanet
 const key = PrivateKey.fromSeed('my secret passphrase');
 console.log(key.getPublicKey().getAddress()); // AaWU6X3pGdtSCK3s9weo9tjth64F3hixgT
 ```
